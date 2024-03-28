@@ -1,5 +1,5 @@
 import "../stylesheet/Card.css"
-function Card(props){
+function Card(props:{bg_url: string, title: string, date: string}){
 
     const background = {
         backgroundImage: `url(${props.bg_url})`,
