@@ -1,0 +1,45 @@
+ @import "_theme.scss";
+
+.workDisplay{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media screen and (min-width: 768px){
+    #title{
+      width: 100%;
+      padding-left: 20%;
+    }
+
+    .container{
+      width: 60%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      a{
+        max-width:300px
+      }
+    }
+  }
+
+  #title{
+    width: 100%;
+    color: $text;
+    padding-left: 20%;
+  }
+
+  .button{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    button{
+      border: solid white 1px;
+      background: #151519;
+      border-radius: 25px;
+      height: 25px;
+      width: 50px;
+      color: $text;
+    }
+  }
+}

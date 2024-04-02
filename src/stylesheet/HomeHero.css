@@ -1,0 +1,105 @@
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes rotation {
+  0% {
+    --gradient-angle: 0deg;
+  }
+  50% {
+    --gradient-angle: 360deg;
+  }
+  100% {
+    --gradient-angle: 720deg;
+  }
+}
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to bottom, transparent, rgba(21, 21, 25, 0.999)), linear-gradient(90deg, #151519 19px, transparent 1%) center/20px 20px, linear-gradient(#151519 19px, transparent 1%) center/20px 20px, white;
+  color: #e9e9f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero .container {
+  width: 60%;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  border-radius: 1em;
+  position: relative;
+}
+.hero .container::before, .hero .container::after {
+  content: "";
+  position: absolute;
+  inset: -0.25rem;
+  z-index: 0;
+  border-radius: inherit;
+  background: linear-gradient(var(--gradient-angle), #2a1197, #622b73, #e69141);
+  animation: rotation 20s linear infinite;
+}
+.hero .container::after {
+  filter: blur(2.5rem);
+}
+.hero .clock {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+  z-index: 1;
+  background: #151519;
+  height: 100%;
+  border-radius: 1em;
+  align-items: center;
+}
+.hero .clock::before {
+  content: "_renald sonnet has been online for:";
+  position: absolute;
+  top: 5%;
+  left: 15px;
+  font-size: 1em;
+}
+.hero .clock span {
+  font-size: 32px;
+  font-weight: bold;
+  position: relative;
+  margin: 20px;
+}
+.hero .clock span::after {
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+  font-weight: 100;
+  font-size: 16px;
+}
+.hero .clock span#yea::after {
+  content: "years";
+}
+.hero .clock span#mth::after {
+  content: "months";
+}
+.hero .clock span#day::after {
+  content: "days";
+}
+.hero .clock span#hrs::after {
+  content: "hours";
+}
+.hero .clock span#min::after {
+  content: "mins";
+}
+.hero .clock span#sec::after {
+  content: "secs";
+}
+@media screen and (max-width: 480px) {
+  .hero .container {
+    height: 50vh;
+  }
+  .hero .clock::before {
+    font-size: 0.5em;
+  }
+}
+
+/*# sourceMappingURL=HomeHero.css.map */

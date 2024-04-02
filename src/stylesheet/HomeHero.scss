@@ -1,0 +1,126 @@
+@import "_theme.scss";
+
+$border-radius: 1em;
+$dot-color: white;
+$dot-size: 1px;
+$dot-space: 20px;
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotation {
+  0% {--gradient-angle: 0deg;}
+  50% {--gradient-angle: 360deg;}
+  100% {--gradient-angle: 720deg}
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background:
+          linear-gradient(to bottom, transparent, rgba($background, 0.999)),
+          linear-gradient(90deg, $background $dot-space - $dot-size, transparent 1%) center / $dot-space $dot-space,
+          linear-gradient($background $dot-space - $dot-size, transparent 1%) center / $dot-space $dot-space,
+          $dot-color;
+  color: $text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container{
+    width: 60%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    border-radius: $border-radius;
+    position: relative;
+
+    &::before,&::after{
+      content: "";
+      position: absolute;
+      inset: -.25rem;
+      z-index: 0;
+      border-radius: inherit;
+      background: linear-gradient(
+                      var(--gradient-angle),
+                      $primary,
+                      $secondary,
+                      $accent,
+      );
+      animation: rotation 20s linear infinite;
+    }
+
+    &::after{
+      filter: blur(2.5rem);
+    }
+  }
+
+  .clock{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    z-index: 1;
+    background: $background;
+    height: 100%;
+    border-radius: $border-radius;
+    align-items: center;
+
+    &::before{
+      content: "_renald sonnet has been online for:";
+      position: absolute;
+      top: 5%;
+      left: 15px;
+      font-size: 1em;
+    }
+
+    span{
+      font-size: 32px;
+      font-weight: bold;
+      position: relative;
+      margin: 20px;
+
+      &::after{
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+        font-weight: 100;
+        font-size: 16px;
+      }
+
+      &#yea::after{
+        content: "years";
+      }
+      &#mth::after{
+        content: "months";
+      }
+      &#day::after{
+        content: "days";
+      }
+      &#hrs::after{
+        content: "hours";
+      }
+      &#min::after{
+        content: "mins";
+      }
+      &#sec::after{
+        content: "secs";
+      }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .container {
+      height: 50vh;
+    }
+    .clock{
+      &::before{
+        font-size: .5em;
+      }
+    }
+  }
+}

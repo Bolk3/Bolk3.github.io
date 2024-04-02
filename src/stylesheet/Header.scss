@@ -28,12 +28,14 @@
 
   @media screen and (max-width: 766px) {
     .menuHmb{
+      z-index: 2;
       position: absolute;
       top: 65px;
       right: 50px;
     }
 
     .nav-link{
+      z-index: 2;
       top: 0;
       position: absolute;
       width: 100vw;
@@ -42,8 +44,10 @@
       transition: all 0.5s ease;
 
       &.mobile-menu{
+        z-index: 2;
         margin-left: 0;
         background: rgba(255,255,255,0.25);
+        backdrop-filter: blur(2px);
       }
       ul{
         height: 100%;
