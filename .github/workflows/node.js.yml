@@ -33,7 +33,7 @@ jobs:
 
     - name: Deploy with gh-pages
       run: |
-        git origin
+        git remote origin
         npx gh-pages -d dist 
         env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
