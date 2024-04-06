@@ -37,7 +37,6 @@ export default function PortfolioDisplay(props: { direction: string; }) {
 
     const fetchData = async () => {
         const API_KEY = import.meta.env.REACT_APP_API_KEY;
-        console.log(API_KEY);
         const CHANNEL_ID = 'UCx2Y_-wRMs_RZAeaJMvQgTA';
         const MAX_RESULTS = 10;
 

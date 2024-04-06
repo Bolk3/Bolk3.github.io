@@ -37,3 +37,4 @@ jobs:
           npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REACT_APP_API_KEY: ${{vars.REACT_APP_API_KEY}}
