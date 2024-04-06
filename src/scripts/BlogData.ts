@@ -75,6 +75,13 @@ const BlogPosts: BlogPost[] =[
         thumbnail: "assets/batman-dc-comics-digital-art-4k-wallpaper-uhdpaper.com-260@0@j.jpg",
         content:"aa",
         date:"june 03, 2003"
+    },
+    {
+        id: 12,
+        title: "testing ground",
+        thumbnail: "assets/batman-dc-comics-digital-art-4k-wallpaper-uhdpaper.com-260@0@j.jpg",
+        content:"aa",
+        date:"june 03, 2003"
     }
 ]
 
